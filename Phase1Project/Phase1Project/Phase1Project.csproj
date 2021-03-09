@@ -8,9 +8,13 @@
   <ItemGroup>
     <None Remove="search.txt" />
     <None Remove="sort.txt" />
+    <None Remove="things1.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="things1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="search.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
