@@ -1,0 +1,5 @@
+﻿1|Mike|Human|Male|Homo Sapien
+2|Bleu|Dog|Male|Braque D'Auvergne
+3|Bowie|Dog|Female|Braque D'Auvergne
+4|Belle|Dog|Female|Braque D'Auvergne
+5:Kona|Dog|Female|German Shepard
