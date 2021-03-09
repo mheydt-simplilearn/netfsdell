@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -9,7 +10,8 @@ namespace Phase1Project
         static void Main(string[] args)
         {
             //run(new string[] { "sort" });
-            run(new string[] { "search", "Bleu" });
+            //run(new string[] { "search", "Bleu" });
+            run(new string[] { "load" });
         }
 
         static void run(string[] options)
@@ -36,7 +38,42 @@ namespace Phase1Project
                         search(options[1]);
                     }
                     break;
+                case "load":
+                    var things = load();
+                    foreach (var thing in things)
+                    {
+                        Console.WriteLine(thing);
+                    }
+
+                    var dict = new Dictionary<int, Thing>(); 
+                    foreach (var thing in things)
+                    {
+                        dict[thing.ID] = thing;
+                    }
+
+                    var thing4 = dict[4];
+                    Console.WriteLine(thing4);
+
+                    break;
             }
+        }
+
+        private static List<Thing> load()
+        {
+            var things = new List<Thing>();
+
+            var lines = File.ReadAllLines("things1.txt");
+            foreach (var line in lines)
+            {
+                //var fields = line.Split('|');
+
+                //var thing = new Thing(int.Parse(fields[0]), fields[1], fields[2], fields[3], fields[4]);
+                var thing = new Thing(line);
+
+                things.Add(thing);
+            }
+
+            return things;
         }
 
         private static void search(string searchText)
