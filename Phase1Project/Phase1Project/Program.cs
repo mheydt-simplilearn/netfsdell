@@ -9,9 +9,18 @@ namespace Phase1Project
     {
         static void Main(string[] args)
         {
+            //var repository = new PipeDelimitedStudentsRepository();
+            var repository = new JSONStudentsRepository();
+            var students = repository.Load();
+            repository.Save(students);
+
+
+
+            
+
             //run(new string[] { "sort" });
             //run(new string[] { "search", "Bleu" });
-            run(new string[] { "load" });
+            //run(new string[] { "load" });
         }
 
         static void run(string[] options)
