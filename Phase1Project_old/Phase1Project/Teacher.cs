@@ -16,5 +16,4 @@ namespace Phase1Project
         public DateTime DateOfJoining { get; set; }
 
     }
-
 }
