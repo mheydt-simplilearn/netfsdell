@@ -23,7 +23,7 @@ namespace ProjectPhase1.Repositories
             foreach (var teacherAsPipeDelimited in teachersAsPipeDelimited)
             {
                 var splits = teacherAsPipeDelimited.Split('|');
-                var teacher = new Teacher(int.Parse(splits[0]), splits[1]); // TODO: add support for last name
+                var teacher = new Teacher(int.Parse(splits[0]), splits[1], splits[2]); // TODO: add support for last name
                 teachers.Add(teacher);
             }
             return teachers;
@@ -34,7 +34,7 @@ namespace ProjectPhase1.Repositories
             var teachersAsPipeDelimited = new List<string>();
             foreach (var teacher in teachers)
             {
-                var teacherAsPipeDelimited = $"{teacher.ID}|{teacher.FirstName}"; // TODO: add support for last name
+                var teacherAsPipeDelimited = $"{teacher.ID}|{teacher.FirstName}|{teacher.LastName}"; // TODO: add support for last name
                 teachersAsPipeDelimited.Add(teacherAsPipeDelimited);
             }
             File.WriteAllLines(_filename, teachersAsPipeDelimited);

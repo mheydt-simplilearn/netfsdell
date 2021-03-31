@@ -1,0 +1,31 @@
+<html>
+<body>
+        <header>
+                <h1>MEAN Stack</h1>
+                <p> Lesson 3 Demos </p>
+                <p> Ajax without Fetch and Promise</p>
+                 
+                </header>
+
+<script language="javascript" type="text/javascript">
+    function ajax_call_demo( ){
+        const URL = "https://ghibliapi.herokuapp.com/people";
+        const main = document.getElementById("main");
+        main.innerHTML = "<p>Loading...";
+        fetch(URL)
+            .then((response) => response.json())
+            .then((people) => main.innerHTML = getListOfNames(people));
+        const getListOfNames = (people) => {
+            const names = people
+                .map((person) => `<li>${person.name}</li>`)
+                .join("\n");
+            return `<ul>${names}</ul>`;
+        };
+    };;
+
+</script>
+
+<button onClick="ajax_call_demo()">Click here to get a list of names</button><br />
+<div id="main"></div>
+</body>
+</html>

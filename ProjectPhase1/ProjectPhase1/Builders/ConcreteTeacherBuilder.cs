@@ -17,9 +17,19 @@ namespace ProjectPhase1.Builders
 
         protected override void BuildFirstName(Teacher teacher)
         {
+            Console.WriteLine("Enter teacher first name:");
             // TODO: prompt, read and assign first name
+            teacher.FirstName = Console.ReadLine();
         }
 
         // TODO add a builder method for last name (with prompt)
+
+        protected override void BuildLastName(Teacher teacher)
+        {
+            Console.WriteLine("Enter teacher last name:");
+            // TODO: read lastname and assign to teacher property last name
+            teacher.LastName = Console.ReadLine();
+
+        }
     }
 }

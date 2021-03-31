@@ -13,7 +13,7 @@ namespace ProjectPhase1.Templates
     {
         protected override void loadTeachers()
         {
-            var teachersRepository = new PipeDelimitedFileTeachersRepository("teachers.txt");
+            var teachersRepository = new PipeDelimitedFileTeachersRepository("..\\..\\..\\teachers_dynamic.txt");
             var teachersAsList = teachersRepository.Load();
             _teachers = teachersAsList.ToDictionary(t => t.ID);
             Console.WriteLine($"Loaded {_teachers.Count} teachers");
@@ -22,13 +22,17 @@ namespace ProjectPhase1.Templates
         protected override void saveTeachers()
         {
             // TODO: Save teachers using the repository
+            var teachersRepository = new PipeDelimitedFileTeachersRepository("..\\..\\..\\teachers_dynamic.txt");
+            teachersRepository.Save(_teachers.Values);
         }
 
         protected override int getOption()
         {
             // TODO: Get rid of exception
             // TODO: Read user input from console, convert to int and return
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            var input = Console.ReadLine();
+            return int.Parse(input);
         }
 
         protected override void addTeacher()
@@ -44,7 +48,7 @@ namespace ProjectPhase1.Templates
             var id = int.Parse(Console.ReadLine());
 
             // TODO: first check if teacher is in dictionary using the id
-            if (!_teachers. ContainsKey(id))
+            if (!_teachers.ContainsKey(id))
             {
                 Console.WriteLine($"Teacher with id {id} not found");
             }
@@ -61,25 +65,23 @@ namespace ProjectPhase1.Templates
             Console.WriteLine("Enter ID of teacher to find");
             var id = int.Parse(Console.ReadLine());
            
-            /*
-            if (// TODO: check if teacher not in dictionary)
+            if (!_teachers.ContainsKey(id)) // TODO: check if teacher not in dictionary)
             {
                 Console.WriteLine($"Teacher with id {id} not found");
             }
             else
             {
-                Console.WriteLine(// TODO: Write teacher the console);
+                Console.WriteLine(_teachers[id]); // TODO: Write teacher the console);
             }
-            */
         }
 
         protected override void listTeachers(IEnumerable<Teacher> teachers)
         {
             // TODO: loop through all teachers passed as a parameter and write them to the console
-            //foreach (...)
-            //{
-            //    Console.WriteLine(...);
-            //}
+            foreach (var teacher in _teachers)
+            {
+                Console.WriteLine(teacher);
+            }
         }
 
         protected override void sortTeachers()
@@ -91,11 +93,12 @@ namespace ProjectPhase1.Templates
             Console.WriteLine("3) First Name");
 
             var option = int.Parse(Console.ReadLine());
+
             ISortTeachersStrategy sortStrategy = null;
             switch (option)
             {
-                case 1: /* TODO... */ break; // create new strategy to sort by id
-                case 2: /* TODO... */ break; // create new strategy to sort by first name
+                case 1: sortStrategy = new SortTeachersByIdStrategy(); break; // create new strategy to sort by id
+                case 2: sortStrategy = new SortTeachersByLastNameStrategy(); break; // create new strategy to sort by first name
                 case 3: sortStrategy = new SortTeachersByFirstNameStrategy(); break;
             }
 
@@ -119,12 +122,12 @@ namespace ProjectPhase1.Templates
 
             // TODO... read and assign new values for first and last name
 
-            // TODO: read first name
-            // TODO: update first name of teacher
+            Console.WriteLine("Enter new first name");
+            teacher.FirstName = Console.ReadLine();
+            Console.WriteLine("Enter new lst name");
+            teacher.LastName = Console.ReadLine();
 
-            // TODO: read last name
-            // TODO: update last name of teacher
-
+            //saveTeachers();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPhase1.Strategies
 {
-    public class SortTeachersByFirstNameStrategy : AbstractSortTeachersStrategy
+    public class SortTeachersByIdStrategy : AbstractSortTeachersStrategy
     {
         public override List<Teacher> Sort(IEnumerable<Teacher> teachers)
         {
@@ -17,7 +17,7 @@ namespace ProjectPhase1.Strategies
                 var inserted = false;
                 for (var i=0; i<sorted.Count(); i++)
                 {
-                    if (string.Compare(teacher.FirstName, sorted[i].FirstName) == -1)
+                    if (teacher.ID < sorted[i].ID)
                     {
                         inserted = true;
                         sorted.Insert(i, teacher);
@@ -32,4 +32,3 @@ namespace ProjectPhase1.Strategies
         }
     }
 }
-

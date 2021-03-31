@@ -1,0 +1,153 @@
+body{
+    font:Arial, Helvetica, sans-serif
+}
+#container{
+    width:1300px;
+    border: 1px solid grey;
+    margin: 0 auto;
+}
+
+#header{
+    height:100px;
+    padding: 10px 0;
+}
+h1 a{
+    font-size: 40px;
+    font-weight: 100;
+    color: red;
+    text-decoration: none;
+}
+
+#brand {
+    float: left;
+}
+
+#searchbox{
+    float: right;
+    background: linear-gradient(#bbb, #eee);
+    width: 600px;
+    height: 50px;
+    padding: 20px 20px 0 20px;
+    margin-top: 20px;
+}
+
+.text{
+    float: left;
+    width: 200px;
+    padding: 5px;
+    font-size: 15px;
+    color:blueviolet;
+    background: white url(images/search.png) right center no-repeat;
+    border: 1px solid #eee;
+}
+
+.submit{
+    float:right;
+    padding 5px;
+    font-weight: bold;
+    color:white;
+    background: violet;
+    font-size: 15px;
+    height:30px;
+}
+
+.clear{
+    clear: both;
+}
+
+#nav{
+    height:50px;
+    background: linear-gradient(#bbb, #eee);
+    padding: 7px 0;
+}
+
+
+#nav ul{
+    list-style: none;
+}
+
+#nav ul li{
+    float:left;
+    padding: 0 10px;
+    height: 30px;
+    border-right: 1px solid blueviolet;
+}
+
+#nav ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: blueviolet;
+    line-height: 30px;
+    transition: font-size 0.3s ease;
+}
+
+#nav ul li:last-child{
+    border-right: none;
+}
+
+#nav ul li a:hover, #nav ul li a.active{
+    font-size: 20px;
+    font-weight: bold;
+    color: blueviolet;
+}
+
+#introduction{
+    background: linear-gradient(#bbb, #eee);
+    padding: 30px;
+    margin: 16px 0;
+}
+
+#introduction h3{
+    font-size: 45px;
+    font-weight: normal;
+}
+
+#introduction p{
+    font-size: 25px;
+    text-align: justify;
+}
+
+.sidebar{
+    height:500px;
+    width: 570px;
+    border: 1px solid teal;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: blueviolet;
+}
+
+.sidebar h3{
+    color: blueviolet;
+    font-size: 30px;
+}
+
+.sidebar ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: blueviolet;
+}
+
+#leftsidebar{
+    float:left;
+}
+
+#rightsidebar{
+    float:right;
+}
+
+#leftsidebar ul li{
+    padding-bottom: 6px;
+    padding-left: 10px;
+    list-style-image: url(images/go.png);
+}
+#leftsidebar ul{
+    padding-top: 8px;
+}
+
+.footer{
+    height: 60px;
+    background: linear-gradient(#bbb, #eee);
+    padding: 10px 20px;
+    margin-top: 15px;
+}
