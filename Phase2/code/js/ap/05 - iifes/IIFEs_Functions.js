@@ -12,7 +12,6 @@ var data = (func) => {
     // get data from user or other external source
     var num1 = 10;
     var num2 = 20;
-console.log(func);
     return func(num1, num2);
 }
 
