@@ -1,4 +1,5 @@
 //IIFE and Closure
+/*
 const empId_not_closed = function() {
   var count = 0;
     ++count;
@@ -12,16 +13,23 @@ const empId = (function() {
     ++count;
     return `emp${count}`;
   };
-})();
+})
+();
 
-console.log("New Emplyee IDs are listed here");
+
+
+console.log(empId);
+
+
+console.log("New Employee IDs are listed here");
 console.log("Alex: " + empId()); 
 console.log("Dexter: " + empId()); 
 console.log("Annie: " + empId());
+*/
   
 
 //Callbacks
-console.log("\n"); //to start the output from the neext line
+console.log("\n"); //to start the output from the next line
 function fullName(firstName, lastName, callback){
   console.log("My name is " + firstName + " " + lastName);
   callback(lastName);

@@ -14,3 +14,4 @@ fetch(`https://jsonplaceholder.typicode.com/users?username=${username}`)
   .catch(error => {
     console.log('Request Error:', error);
   });
+
