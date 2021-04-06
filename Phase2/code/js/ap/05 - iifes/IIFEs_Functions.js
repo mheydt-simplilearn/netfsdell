@@ -23,7 +23,7 @@ console.log("\n Functions returning Function demo");
 const multi = (integer) => (anotherInteger) => integer * anotherInteger;
 const div = (integer) => (anotherInteger) => integer / anotherInteger;
  
-const result1 = multi(10)(50); 
+const result1 = multi(100)(50); 
 const result2 = div(25)(5);
 
 console.log(result1); 

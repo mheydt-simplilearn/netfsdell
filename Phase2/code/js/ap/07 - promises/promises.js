@@ -6,7 +6,7 @@ function flippingACoin() {
     });
   }
   
-  async function result() {
+ function result() {
     try {
       //const result = await flippingACoin();
       flippingACoin()

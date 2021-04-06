@@ -1,4 +1,4 @@
-function sum(...params) {
+function sum(a, b, ...params) {
     return params.reduce((previous, current) => {
        return previous + current;
     });

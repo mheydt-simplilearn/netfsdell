@@ -14,7 +14,7 @@ var counter = (function () {
         }
     };
 })();
-
+console.log(counter.i);
 console.log(counter);
 
 // These calls access the function properties returned by "counter".
