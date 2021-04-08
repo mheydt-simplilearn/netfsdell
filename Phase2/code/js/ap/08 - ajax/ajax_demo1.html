@@ -23,10 +23,6 @@
             alert("Your browser does not support XMLHttpRequest...!");
         }
 
-        xhttp.open("GET", "https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", true);  // Make sure file is in same server
-        xhttp.overrideMimeType('text/plain; charset=x-user-defined');
-        xhttp.send(null);
-
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4){
                 if ((xhttp.status == 200) || (xhttpr.status == 0)){
@@ -39,6 +35,12 @@
                 } 
             }
         }; 
+        
+        xhttp.open("GET", "https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", true);  // Make sure file is in same server
+        xhttp.overrideMimeType('text/plain; charset=x-user-defined');
+        xhttp.send(null);
+
+
     }
 
     function encode64(inputStr){

@@ -17,11 +17,14 @@
             .then((people) => main.innerHTML = getListOfNames(people));
         const getListOfNames = (people) => {
             const names = people
-                .map((person) => `<li>${person.name}</li>`)
+                .map((person) =>{
+                    console.log(person);
+                return `<li>${person.name}</li>`}
+                )
                 .join("\n");
             return `<ul>${names}</ul>`;
         };
-    };;
+    };
 
 </script>
 

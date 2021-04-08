@@ -12,3 +12,5 @@ var person1 = {
 }
 
 console.log(person.fullName.apply(person1)); 
+
+var binded = person.fullName.bind(person1);

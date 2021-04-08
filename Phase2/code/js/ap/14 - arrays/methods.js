@@ -1,7 +1,9 @@
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.forEach(fruit => console.log(fruit))
+
 var lengths = fruits.map(fruit => fruit.length)
 console.log(lengths);
+
 var filtered = fruits.filter(fruit => fruit.indexOf("an") !== -1);
 console.log(filtered);
 
