@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "title": "IPL KKR vs DD 1",
+      "title": "IPL KKR vs DD",
       "domain": "sports",
       "price": 2500,
       "location": "Delhi",
@@ -13,7 +13,7 @@
       "id": "12a8c9ee-3b7f-4139-baf7-95984697a655"
     },
     {
-      "title": "IPL KKR vs DD 2",
+      "title": "IPL KKR vs DD",
       "domain": "sports",
       "price": 2500,
       "location": "Goa",
@@ -25,7 +25,7 @@
       "id": "04f9f868-9678-4193-8ef4-51be1ba13d1c"
     },
     {
-      "title": "IPL KKR vs DD 3",
+      "title": "IPL KKR vs DD",
       "domain": "sports",
       "price": 2500,
       "location": "Maharashtra",
@@ -35,18 +35,6 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "organizerName": "91 Events",
       "id": "87a9094a-8ed9-4e8f-a08a-f2c69d916cad"
-    },
-    {
-      "id": "pJ6RgT-",
-      "title": "My Event Updated",
-      "domain": "sports",
-      "price": "1000",
-      "location": "US",
-      "startDate": "2020-10-21",
-      "endDate": "2020-10-21",
-      "photoPath": "www.demo_path.jpeg",
-      "description": "A new event",
-      "organizerName": "Mike"
     }
   ]
 }

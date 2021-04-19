@@ -21,7 +21,7 @@ class AddEvent extends React.Component {
       this.state.startDate === "" || this.state.endDate === "" ||
       this.state.photoPath === "" || this.state.description === "" ||
       this.state.organizerName === "") {
-      alert("ALl the fields are mandatory!");
+      alert("All the fields are mandatory!");
       return;
     }
     this.props.addEventHandler(this.state);
