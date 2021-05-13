@@ -44,7 +44,7 @@ namespace Phase3Section2_7.Controllers
         [HttpPost]
         public ViewResult ViewDataSubmit()
         {
-            ViewData["name"] = Request.Form["name"];
+            ViewData["name"] = this.Request.Form["name"];
             ViewData["address"] = Request.Form["address"];
             ViewData["class"] = Request.Form["class"];
             ViewData["year"] = Request.Form["year"];
@@ -78,6 +78,14 @@ namespace Phase3Section2_7.Controllers
         {
             var model = TempData["name"];
             return View();
+        }
+
+        public ActionResult Student()
+        {
+            return View(new List<Student> {
+                new Student() { Name = "Mike" },
+                 new Student() { Name = "Bleu" } });
+
         }
 
     }

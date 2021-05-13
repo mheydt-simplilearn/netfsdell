@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "StudentListView";
+}
+
+<h2>StudentListView</h2>
+<div class="container">
+    <br />
+    <h4>List Of Students</h4>
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> students = (List<Student>)ViewData["students"];
+                foreach (Student st in students)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+            <hr /><b>Students with Percent > 80</b>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> filter = (List<Student>)ViewData["filter"];
+                foreach (Student st in filter)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+
+            <div class="clearfix"></div><br />
+            <hr /><b>List of all subjects taken by students</b>
+            <div class="row">
+                <div class="col-sm-3">Subjects</div>
+            </div>
+            <hr />
+            @{
+                List<String> many = (List<String>)ViewData["many"];
+                foreach (String m in many)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@m</div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>

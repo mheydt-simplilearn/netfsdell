@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31213.239
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase3Section3_9_PageEvents", "Phase3Section3_9_PageEvents\Phase3Section3_9_PageEvents.csproj", "{51D13385-EB17-4549-89BA-AADA8182F065}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51D13385-EB17-4549-89BA-AADA8182F065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D13385-EB17-4549-89BA-AADA8182F065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D13385-EB17-4549-89BA-AADA8182F065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D13385-EB17-4549-89BA-AADA8182F065}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86A91544-FFC8-421B-9FEB-1E94F67C5B41}
+	EndGlobalSection
+EndGlobal
