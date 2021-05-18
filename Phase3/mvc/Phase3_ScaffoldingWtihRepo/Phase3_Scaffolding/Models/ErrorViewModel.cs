@@ -1,6 +1,6 @@
 using System;
 
-namespace Phase3_Section3_34_DataValidation.Models
+namespace Phase3_Scaffolding.Models
 {
     public class ErrorViewModel
     {

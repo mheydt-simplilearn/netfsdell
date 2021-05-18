@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Phase3_Section3_34_DataValidation
+namespace Phase3_Scaffolding
 {
     public class Program
     {

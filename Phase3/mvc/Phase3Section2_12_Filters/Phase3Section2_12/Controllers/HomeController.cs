@@ -16,6 +16,10 @@ namespace Phase3Section2_12.Controllers
     [ActionLoggingFilter]
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+
+        }
         public IActionResult Index()
         {
             return View();

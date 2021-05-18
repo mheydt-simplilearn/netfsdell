@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Phase3_Scaffolding.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Phase3_Section3_34_DataValidation
+namespace Phase3_Scaffolding
 {
     public class Startup
     {
@@ -23,6 +25,10 @@ namespace Phase3_Section3_34_DataValidation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<SchoolContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("SchoolContext"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

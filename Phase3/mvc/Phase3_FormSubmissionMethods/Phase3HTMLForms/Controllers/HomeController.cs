@@ -16,7 +16,7 @@ namespace Phase3HTMLForms.Controllers
             return View();
         }
 
-        public IActionResult FormGet()
+        public IActionResult FormGet(string name, string address, string email, string whichclass)
         {
             ViewData["name"] = Request.Query["name"].ToString();
             ViewData["email"] = Request.Query["email"].ToString();

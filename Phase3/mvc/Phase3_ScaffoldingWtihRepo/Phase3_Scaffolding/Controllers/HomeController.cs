@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Phase3_Section3_34_DataValidation.Models;
+using Phase3_Scaffolding.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Phase3_Section3_34_DataValidation.Controllers
+namespace Phase3_Scaffolding.Controllers
 {
     public class HomeController : Controller
     {
