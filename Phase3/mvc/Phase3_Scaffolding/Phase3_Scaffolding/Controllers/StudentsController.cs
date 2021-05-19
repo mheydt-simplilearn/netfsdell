@@ -21,7 +21,9 @@ namespace Phase3_Scaffolding.Controllers
         // GET: Students
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+            var students = from student in _context.Students select student;
+            var actualStudents = await students.ToListAsync();
+            return View(students);
         }
 
         // GET: Students/Details/5
@@ -73,6 +75,8 @@ namespace Phase3_Scaffolding.Controllers
             }
 
             var student = await _context.Students.FindAsync(id);
+            _context.SaveChanges();
+
             if (student == null)
             {
                 return NotFound();
@@ -125,6 +129,7 @@ namespace Phase3_Scaffolding.Controllers
 
             var student = await _context.Students
                 .FirstOrDefaultAsync(m => m.Id == id);
+            
             if (student == null)
             {
                 return NotFound();

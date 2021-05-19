@@ -20,6 +20,7 @@ namespace Phase3_Section3_36_CustomHelpers.Controllers
 
         public IActionResult Index()
         {
+            throw new Exception("Woops!");
             return View();
         }
 

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Phase3_Scaffolding.Data;
+using Phase3_Scaffolding.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace Phase3_Scaffolding
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SchoolContext"));
             });
+
+            services.AddScoped(typeof(IGenericRepository<Student>), typeof(GenericRepository<Student>));
+            services.AddScoped(typeof(IGenericRepository<Subject>), typeof(GenericRepository<Subject>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

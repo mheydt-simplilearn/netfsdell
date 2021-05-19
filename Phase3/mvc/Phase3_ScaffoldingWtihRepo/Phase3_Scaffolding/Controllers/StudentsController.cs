@@ -14,10 +14,10 @@ namespace Phase3_Scaffolding.Controllers
     public class StudentsController : Controller
     {
         private IGenericRepository<Student> repository = null;
-        public StudentsController()
+        public StudentsController(IGenericRepository<Student> repository)
         {
             // move this to the DI system
-            this.repository = new GenericRepository<Student>();
+            this.repository = repository;
         }
 
 
