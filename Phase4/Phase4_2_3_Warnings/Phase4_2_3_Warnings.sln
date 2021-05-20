@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_3_Warnings", "Phase4_2_3_Warnings\Phase4_2_3_Warnings.csproj", "{C5A857F0-E11E-4EB2-84B8-3B10751D9F7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_3_Warnings.Tests", "Phase4_2_3_Warnings.Tests\Phase4_2_3_Warnings.Tests.csproj", "{FF66C067-E1EF-4B6D-A89A-108E982A13CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5A857F0-E11E-4EB2-84B8-3B10751D9F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A857F0-E11E-4EB2-84B8-3B10751D9F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A857F0-E11E-4EB2-84B8-3B10751D9F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A857F0-E11E-4EB2-84B8-3B10751D9F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF66C067-E1EF-4B6D-A89A-108E982A13CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF66C067-E1EF-4B6D-A89A-108E982A13CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF66C067-E1EF-4B6D-A89A-108E982A13CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF66C067-E1EF-4B6D-A89A-108E982A13CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E276268-A4BC-48C5-9727-FE8894300455}
+	EndGlobalSection
+EndGlobal
