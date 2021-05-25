@@ -1,0 +1,53 @@
+﻿@model Cart
+
+@{
+    ViewData["Title"] = "Your Cart";
+    ViewData["CartItemCount"] = Model.Items.Count();
+}
+
+<h1>Cart</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+            </th>
+            <th>Quantity</th>
+            <th>Name
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Product.Thumbnail" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Delete",       "Remove", "Cart", new { ProductId = item.Product.ID}, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@Html.ActionLink("Complete Purchase",  "Purchase",   "Cart",     null, new { @class = "btn btn-success" })

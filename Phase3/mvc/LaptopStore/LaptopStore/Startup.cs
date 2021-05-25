@@ -26,10 +26,17 @@ namespace LaptopStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.Add(new ServiceDescriptor(typeof(ILaptopStoreRepository), typeof(LaptopStoreRepository), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(IProductsRepository), typeof(InMemoryProductsRepository), ServiceLifetime.Scoped));
 
             services.AddDbContext<LaptopStoreContext>(options =>
                     options.UseSqlServer(@"Server=.\SQLExpress;Database=LaptopStore;User Id=sa;Password=P@ssword;"));
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +55,8 @@ namespace LaptopStore
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

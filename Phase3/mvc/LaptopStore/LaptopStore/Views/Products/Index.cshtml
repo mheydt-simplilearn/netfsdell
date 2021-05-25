@@ -2,18 +2,20 @@
 
 @{
     ViewData["Title"] = "Product Inventory";
+    ViewData["CartItemCount"] = 0;
 }
 
 <h1>Inventory</h1>
 
 <p>
     @*  <a asp-action="Create">Create New</a> *@
-    @Html.ActionLink("New", "Create", "Products", null, new { @class = "btn btn-warning" })
+    @Html.ActionLink("New", "Create", "Products", null, new { @class = "btn text-primary" })
 </p>
 
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -23,9 +25,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Thumbnail)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -33,6 +32,8 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                <img src="~/images/@item.Thumbnail" />
+            </td>            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -41,19 +42,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
-                @* @Html.DisplayFor(modelItem => item.Thumbnail)-*@
-                <img src="~/images/@item.Thumbnail" />
-            </td>
+
             <td>
                 @*  
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                 *@
-                @Html.ActionLink("Edit",    "Edit",    "Products", new { ID = item.ID}, new { @class = "btn btn-warning align-middle" })
-                @Html.ActionLink("Details", "Details", "Products", new { ID = item.ID}, new { @class = "btn btn-warning" })
-                @Html.ActionLink("Delete",  "Delete",  "Products", new { ID = item.ID}, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Edit",         "Edit",        "Products", new { ProductId = item.ID}, new { @class = "btn btn-primary align-middle" })
+                @Html.ActionLink("Details",      "Details",     "Products", new { ProductId = item.ID}, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Delete",       "Delete",      "Products", new { ProductId = item.ID}, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Add To Cart",  "AddToCart",   "Cart",     new { ProductId = item.ID}, new { @class = "btn btn-primary" })
             </td>
         </tr>
 }

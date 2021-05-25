@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaptopStore.Data;
 using LaptopStore.Models;
+using LaptopStore.Repositories;
 
 namespace LaptopStore.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly LaptopStoreContext _context;
+        private readonly IProductsRepository _productsRepository;
 
-        public ProductsController(LaptopStoreContext context)
+        public ProductsController(IProductsRepository productsRepository)
         {
-            _context = context;
+            _productsRepository = productsRepository;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _productsRepository.GetAllAsync());
         }
 
         // GET: Products/Details/5
@@ -33,8 +34,7 @@ namespace LaptopStore.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var product = await _productsRepository.FindAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -58,8 +58,8 @@ namespace LaptopStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                _productsRepository.Add(product);
+                await _productsRepository.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -73,7 +73,7 @@ namespace LaptopStore.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            var product = await _productsRepository.FindAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -97,12 +97,12 @@ namespace LaptopStore.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    _productsRepository.Update(product);
+                    await _productsRepository.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ID))
+                    if (!await _productsRepository.ExistsByIdAsync(product.ID))
                     {
                         return NotFound();
                     }
@@ -124,8 +124,7 @@ namespace LaptopStore.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var product = await _productsRepository.FindAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -139,15 +138,9 @@ namespace LaptopStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
-            await _context.SaveChangesAsync();
+            await _productsRepository.RemoveByIdAsync(id);
+            await _productsRepository.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ProductExists(int id)
-        {
-            return _context.Product.Any(e => e.ID == id);
         }
     }
 }
