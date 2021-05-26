@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "StudentListView";
+}
+
+<h2>StudentListView</h2>
+<div class="container">
+    <br />
+    <h4>List Of Students</h4>
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> students = (List<Student>)ViewData["students"];
+                foreach (Student st in students)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+            <h4>StudentList as List</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> toList = (List<Student>)ViewData["toList"];
+                foreach (Student st in toList)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList as Array</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Student[] toArray = (Student[])ViewData["toArray"];
+                foreach (Student st in toArray)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList Lookup for Marks = 80</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> lookupList = (List<Student>)ViewData["listLookup"];
+                foreach (Student st in lookupList)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList Cast as Student</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                IEnumerable<Student> cast = (IEnumerable<Student>)ViewData["cast"];
+                foreach (Student st in cast)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList filtering using OfType</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> ofType = (List<Student>)ViewData["oftypeList"];
+                foreach (Student st in ofType)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList as Ienumeration</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                IEnumerable<Student> ienum = (IEnumerable<Student>)ViewData["ienum"];
+                foreach (Student st in ienum)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList as AsQueryable</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                IQueryable<Student> query = (IQueryable<Student>)ViewData["query"];
+                foreach (Student st in query)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList as Dictionary (name => Address)</h4>
+            <div class="row">
+                <div class="col-sm-3">Name</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Dictionary<string, string> dict = (Dictionary<string, string>)ViewData["dict"];
+                foreach (var student in dict)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@student.Key</div>
+                        <div class="col-sm-3">@student.Value</div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "StudentListView";
+}
+
+<h2>StudentListView</h2>
+<div class="container">
+    <br />
+    <h4>List Of Students</h4>
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                List<Student> students = (List<Student>)ViewData["students"];
+                foreach (Student st in students)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div><br />
+            <h4>StudentList  - FirstOrDefault</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Student first = (Student)ViewData["first"];
+                <div class="row">
+                    <div class="col-sm-3">@first.Name - @first.MarksPercent%</div>
+                    <div class="col-sm-3">@first.Email</div>
+                    <div class="col-sm-3">@first.Class</div>
+                    <div class="col-sm-3">@first.Address </div>
+                </div>
+            }
+            <div class="clearfix"></div><br
+
+            <h4>StudentList  - LastOrDefault</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Student last = (Student)ViewData["last"];
+                <div class="row">
+                    <div class="col-sm-3">@last.Name - @last.MarksPercent%</div>
+                    <div class="col-sm-3">@last.Email</div>
+                    <div class="col-sm-3">@last.Class</div>
+                    <div class="col-sm-3">@last.Address </div>
+                </div>
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList  - ElementAtOrDefault</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Student elementAt = (Student)ViewData["elementAt"];
+                <div class="row">
+                    <div class="col-sm-3">@elementAt.Name - @elementAt.MarksPercent%</div>
+                    <div class="col-sm-3">@elementAt.Email</div>
+                    <div class="col-sm-3">@elementAt.Class</div>
+                    <div class="col-sm-3">@elementAt.Address </div>
+                </div>
+            }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList  - SingleOrDefault</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                Student single = (Student)ViewData["single"];
+                if (single != null)
+                {
+                <div class="row">
+                    <div class="col-sm-3">@single.Name - @single.MarksPercent%</div>
+                    <div class="col-sm-3">@single.Email</div>
+                    <div class="col-sm-3">@single.Class</div>
+                    <div class="col-sm-3">@single.Address </div>
+                </div>
+                    }
+                }
+            <div class="clearfix"></div><br />
+
+            <h4>StudentList  - DefaultIfEmpty</h4>
+            <div class="row">
+                <div class="col-sm-3">Name/Marks</div>
+                <div class="col-sm-3">Email</div>
+                <div class="col-sm-3">Class</div>
+                <div class="col-sm-3">Address </div>
+            </div>
+            <hr />
+            @{
+                IEnumerable<Student> defaultIfEmpty = (IEnumerable<Student>)ViewData["defaultIfEmpty"];
+                foreach (Student st in defaultIfEmpty)
+                {
+                if (st != null)
+                {
+                <div class="row">
+                    <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                    <div class="col-sm-3">@st.Email</div>
+                    <div class="col-sm-3">@st.Class</div>
+                    <div class="col-sm-3">@st.Address </div>
+                </div>
+                    }
+                }
+                }
+            <div class="clearfix"></div><br />
+
+        </div>
+    </div>
+</div>
