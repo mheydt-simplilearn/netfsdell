@@ -8,16 +8,22 @@ using Microsoft.EntityFrameworkCore;
 using LaptopStore.Data;
 using LaptopStore.Models;
 using LaptopStore.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace LaptopStore.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProductsRepository _productsRepository;
+        private readonly ILogger<HomeController> _logger;
 
-        public ProductsController(IProductsRepository productsRepository)
+        public ProductsController(
+            IProductsRepository productsRepository,
+            ILogger<ProductsController> logger)
         {
             _productsRepository = productsRepository;
+            _logger = logger;
+            _logger.LogInformation("In  the products controller constructor");
         }
 
         // GET: Products

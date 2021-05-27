@@ -18,6 +18,7 @@ namespace LaptopStore.Controllers
             ILogger<HomeController> logger)
         {
             _logger = logger ?? throw new Exception("Logger not defined");
+            _logger.LogInformation("In  the home controller constructor");
         }
 
         public ActionResult Index()

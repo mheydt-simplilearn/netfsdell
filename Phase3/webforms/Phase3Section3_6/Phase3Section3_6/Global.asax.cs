@@ -16,6 +16,8 @@ namespace Phase3Section3_6
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            this.Application["MyConfigInfo"] = "HI!";
         }
     }
 }

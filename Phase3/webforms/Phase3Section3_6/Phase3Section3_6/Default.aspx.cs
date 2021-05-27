@@ -11,7 +11,16 @@ namespace Phase3Section3_6
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.Session["PageCountOnSession"] == null)
+            {
+                this.Session["PageCountOnSession"] = 1;
+            }
+            else
+            {
+                var value = (int)this.Session["PageCountOnSession"];
+                this.Session["PageCountOnSession"] = value + 1;
 
+            }
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -24,6 +33,11 @@ namespace Phase3Section3_6
         }
 
         private void upload()
+        {
+
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

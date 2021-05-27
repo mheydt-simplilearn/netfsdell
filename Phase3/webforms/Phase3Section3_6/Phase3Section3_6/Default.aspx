@@ -41,7 +41,7 @@
                  <div class="row mt-5">
                         <div class="col-4">Upload Photo*</div>
                         <div class="col-7">
-                            <asp:FileUpload ID="FileUpload1" runat="server"  />
+                            <asp:FileUpload ID="FileUpload1" runat="server" />
                             <hr />
                             Sample image below:<br />
                             <asp:Image runat="server" Height="300" Width="300" id="imgUpload" ImageUrl="https://visafoto.com/img/source355x388.jpg"/>
@@ -65,7 +65,7 @@
                 <asp:Panel runat="server" CssClass="bg-info row mt-5">
                         <div class="col-4">Special Status</div>
                     <div class="col-7">
-                        <asp:CheckBox ID="CheckBox1" runat="server" Text="&nbsp;Senior Citizen"/><br />
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text="&nbsp;Senior Citizen" OnCheckedChanged="CheckBox1_CheckedChanged"/><br />
                         <asp:CheckBox ID="CheckBox2" runat="server" Text="&nbsp;Minor"/><br />
                         <asp:CheckBox ID="CheckBox3" runat="server" Text="&nbsp;Armed Forces"/><br />
                         <asp:CheckBox ID="CheckBox4" runat="server" Text="&nbsp;Foreign Diplomat"/><br />
@@ -77,7 +77,7 @@
   
       <div class="row mt-5 border-top">
         <div class="col-12 text-center">
-            <asp:Button runat="server" ID="btnSubmit" cssClass="btn btn-secondary" Text="Submit" />
+            <asp:Button runat="server" ID="btnSubmit" cssClass="btn btn-secondary" Text="Submit" OnClick="FileUpload1_Load" />
         </div>
     </div>
 </asp:Content>
