@@ -20,6 +20,25 @@ namespace Phase3Section4_5_Basics.Controllers
 
         public IActionResult Index()
         {
+            var arr = Enumerable.Range(0, 10)
+                .Select(i => new Student()
+                {
+                    ID = i + 1,
+                    Name = "Name " + i.ToString(),
+                    Address = "Address " + i.ToString(),
+                    Email = "Email " + i.ToString(),
+                    Class = "Class 4"
+                }).ToArray();
+
+            var justNameAddress = arr.Select(student =>
+            new 
+            { 
+                Name = student.Name,
+                Address = student.Address
+            }).ToArray();
+            /*
+
+
             Student[] arr = new Student[10];
             for (int i = 0; i < 10; i++)
             {
@@ -31,10 +50,10 @@ namespace Phase3Section4_5_Basics.Controllers
                 student.Class = "Class 4";
                 arr[i] = student;
             }
-
+            */
             ViewData["students"] = arr;
 
-            Student[] arr2 = arr.Where(s => s.ID == 2).ToArray();
+            Student[] arr2 = arr.Where(s => s.ID > 2).ToArray();
             ViewData["idfilter"] = arr2;
 
             Student[] arr3 = arr.Where(s => s.Email == "Email 3").ToArray();

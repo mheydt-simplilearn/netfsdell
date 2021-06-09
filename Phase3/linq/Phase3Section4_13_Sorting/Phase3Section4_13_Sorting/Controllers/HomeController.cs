@@ -39,7 +39,6 @@ namespace Phase3Section4_13_Sorting.Controllers
             List<Student> orderDesc = orderby.ToList<Student>();
             ViewData["descorder"] = orderDesc;
 
-
             var thenBy = students.OrderBy(st => st.MarksPercent).ThenBy(st => st.Name);
             List<Student> thenByList = thenBy.ToList();
             ViewData["thenbyList"] = thenByList;

@@ -28,8 +28,7 @@ namespace Phase3Section4_7_Aggregates.Controllers
             List<Student> students = (List<Student>)dal.GetAllStudents();
             ViewData["students"] = students;
 
-            var marksMin = (from st in students
-                            select st.MarksPercent).Min();
+            var marksMin = students.Select(student => student.MarksPercent).Min();
             ViewData["minMarks"] = marksMin;
 
             var marksMax = (from st in students

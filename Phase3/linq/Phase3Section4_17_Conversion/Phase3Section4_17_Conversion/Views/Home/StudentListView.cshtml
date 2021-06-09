@@ -16,8 +16,8 @@
             </div>
             <hr />
             @{
-                List<Student> students = (List<Student>)ViewData["students"];
-                foreach (Student st in students)
+                var students = ViewData["students"];
+                foreach (var st in (IList<Student>)students)
                 {
                     <div class="row">
                         <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>

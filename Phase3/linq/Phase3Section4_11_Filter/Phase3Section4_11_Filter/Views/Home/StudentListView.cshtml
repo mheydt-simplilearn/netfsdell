@@ -70,6 +70,20 @@
                     </div>
                 }
             }
+            <hr />
+            <h4>Grad Students</h4>
+            @{
+                var gradStudents = ViewData["gradStudents"];
+                foreach (var st in (IEnumerable<GradStudent>)gradStudents)
+                {
+                    <div class="row">
+                        <div class="col-sm-3">@st.Name - @st.MarksPercent%</div>
+                        <div class="col-sm-3">@st.Email</div>
+                        <div class="col-sm-3">@st.Class</div>
+                        <div class="col-sm-3">@st.Address </div>
+                    </div>
+                }
+            }
 
         </div>
     </div>

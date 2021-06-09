@@ -12,12 +12,13 @@
                 Student[] arr = (Student[])ViewData["students"];
                 for (var i = 0; i < @arr.Length; i++)
                 {
-                    <div class="row">
-                        <div class="col-sm-2">@arr[i].Name</div>
-                        <div class="col-sm-2">@arr[i].Email</div>
-                        <div class="col-sm-2">@arr[i].Address</div>
-                        <div class="col-sm-2">@arr[i].Class</div>
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-2">@arr[i].ID</div>
+                            <div class="col-sm-2">@arr[i].Name</div>
+                            <div class="col-sm-2">@arr[i].Email</div>
+                            <div class="col-sm-2">@arr[i].Address</div>
+                            <div class="col-sm-2">@arr[i].Class</div>
+                        </div>
                 }
             }
             <br />
@@ -29,12 +30,13 @@
                 {
                     for (var i = 0; i < @arr.Length; i++)
                     {
-                    <div class="row">
-                        <div class="col-sm-2">@arr[i].Name</div>
-                        <div class="col-sm-2">@arr[i].Email</div>
-                        <div class="col-sm-2">@arr[i].Address</div>
-                        <div class="col-sm-2">@arr[i].Class</div>
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-2">@arr[i].ID</div>
+                            <div class="col-sm-2">@arr[i].Name</div>
+                            <div class="col-sm-2">@arr[i].Email</div>
+                            <div class="col-sm-2">@arr[i].Address</div>
+                            <div class="col-sm-2">@arr[i].Class</div>
+                        </div>
                         }
                     }
                 }
@@ -45,12 +47,13 @@
                 arr = (Student[])ViewData["emailfilter"];
                 for (var i = 0; i < @arr.Length; i++)
                 {
-                    <div class="row">
-                        <div class="col-sm-2">@arr[i].Name</div>
-                        <div class="col-sm-2">@arr[i].Email</div>
-                        <div class="col-sm-2">@arr[i].Address</div>
-                        <div class="col-sm-2">@arr[i].Class</div>
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-2">@arr[i].ID</div>
+                            <div class="col-sm-2">@arr[i].Name</div>
+                            <div class="col-sm-2">@arr[i].Email</div>
+                            <div class="col-sm-2">@arr[i].Address</div>
+                            <div class="col-sm-2">@arr[i].Class</div>
+                        </div>
                 }
             }
             <br />

@@ -21,8 +21,9 @@ namespace Phase3Section4_23_Joins.Controllers
         {
             StudentDAL dal = new StudentDAL();
             List<Student> students = (List<Student>)dal.GetAllStudents();
+            students.Add(students[0]);
             ViewData["students"] = students;
-
+            
             var students1 = students.Where(st => st.MarksPercent > 90);
             var students2 = students.Where(st => st.MarksPercent <= 90);
             var union = students1.Union(students2);

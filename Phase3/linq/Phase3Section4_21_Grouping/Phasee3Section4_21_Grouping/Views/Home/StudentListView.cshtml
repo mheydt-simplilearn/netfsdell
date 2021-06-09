@@ -32,15 +32,20 @@
             <h4>StudentList Grouped by Marks</h4>
             <hr />
             @{
-                IEnumerable<IGrouping<int,Student>> ienum = (IEnumerable<IGrouping<int,Student>>)ViewData["groupby"];
+                var ienum = (IEnumerable<IGrouping<string,Student>>)ViewData["groupby"];
                 foreach (var g in ienum)
                 {
                     <div class="row">
                          <div class="col-sm-12">
-                             <b>Marks: @g.Key</b><br />
+                             <b>Class: @g.Key</b><br />
                              @foreach(Student s in g) {
-                               @s.Name<br />
+                               @(s.MarksPercent.ToString() + '-' + @s.Name)<br />
                              }
+                         </div>
+                         <div class="col-sm-12">
+                             Average for class: @g.Average(st => st.MarksPercent)
+                             Max for class: @g.Max(st => st.MarksPercent)                             
+                             Min for class: @g.Min(st => st.MarksPercent)
                          </div>
                     </div>
                 }

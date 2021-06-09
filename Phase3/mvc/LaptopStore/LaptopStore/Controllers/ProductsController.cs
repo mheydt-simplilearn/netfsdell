@@ -22,7 +22,7 @@ namespace LaptopStore.Controllers
             ILogger<ProductsController> logger)
         {
             _productsRepository = productsRepository;
-            _logger = logger;
+            
             _logger.LogInformation("In  the products controller constructor");
         }
 

@@ -22,7 +22,7 @@ namespace Phasee3Section4_21_Grouping.Controllers
             List<Student> students = (List<Student>)dal.GetAllStudents();
             ViewData["students"] = students;
 
-            var groupby = students.GroupBy(st => st.MarksPercent);
+            var groupby = students.GroupBy(st => st.Class);
             ViewData["groupby"] = groupby;
 
             return View();

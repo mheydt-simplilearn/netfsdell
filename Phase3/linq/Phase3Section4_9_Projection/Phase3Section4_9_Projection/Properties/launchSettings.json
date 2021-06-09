@@ -19,6 +19,7 @@
     "Phase3Section4_9_Projection": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "home/studentlistview",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

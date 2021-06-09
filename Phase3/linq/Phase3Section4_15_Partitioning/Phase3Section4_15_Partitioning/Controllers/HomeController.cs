@@ -22,20 +22,20 @@ namespace Phase3Section4_15_Partitioning.Controllers
             List<Student> students = (List<Student>)dal.GetAllStudents();
             ViewData["students"] = students;
 
-            var take = students.Take(3);
+            var take = students.Take(2);
             List<Student> takeList = take.ToList();
             ViewData["take"] = takeList;
 
-            var takewhile = students.TakeWhile(st => st.MarksPercent <= 90);
+            var takewhile = students.OrderBy(st => st.MarksPercent).TakeWhile(st => st.MarksPercent <= 75);
             List<Student> takewhileList = takewhile.ToList();
             ViewData["takewhile"] = takewhileList;
 
-            var skip = students.Skip(3);
+            var skip = students.Skip(1);
             List<Student> skipList = skip.ToList();
             ViewData["skip"] = skipList;
 
-            var skipwhile = students.SkipWhile(st => st.MarksPercent <= 90);
-            List<Student> skipwhileList = skipwhile.ToList();
+            var skipwhile = students.OrderBy(st => st.MarksPercent).SkipWhile(st => st.MarksPercent <= 90);
+            List<Student> skipwhileList = skipwhile.Reverse().ToList();
             ViewData["skipwhile"] = skipwhileList;
 
 

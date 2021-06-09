@@ -20,13 +20,14 @@ namespace Phase3Section4_17_Conversion.Controllers
         public IActionResult StudentListView()
         {
             StudentDAL dal = new StudentDAL();
-            List<Student> students = (List<Student>)dal.GetAllStudents();
+            var students = dal.GetAllStudents();
             ViewData["students"] = students;
 
             List<Student> toList = students.ToList<Student>();
             ViewData["toList"] = toList;
-
+            
             Student[] toArray = students.ToArray<Student>();
+            
             ViewData["toArray"] = toArray;
 
             var marksLookup = students.ToLookup(st => st.MarksPercent);
@@ -37,14 +38,14 @@ namespace Phase3Section4_17_Conversion.Controllers
             }
             ViewData["listLookup"] = listLookup;
 
-            IEnumerable<Student> cast = students.Cast<Student>();
+            IEnumerable<Student> cast = toList.Cast<Student>();
             ViewData["cast"] = cast;
 
             ArrayList arrMixed = new ArrayList();
             arrMixed.Add("String value");
             arrMixed.Add(12);
             arrMixed.Add(DateTime.Today);
-            arrMixed.Add(students[0]);
+            arrMixed.Add(students.First());
             IEnumerable<Student> arrOfType = arrMixed.OfType<Student>();
             List<Student> ofTypeList = arrOfType.ToList<Student>();
             ViewData["oftypeList"] = ofTypeList;

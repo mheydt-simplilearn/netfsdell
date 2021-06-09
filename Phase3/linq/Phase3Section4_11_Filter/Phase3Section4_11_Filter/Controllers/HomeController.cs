@@ -27,6 +27,12 @@ namespace Phase3Section4_11_Filter.Controllers
         {
             StudentDAL dal = new StudentDAL();
             List<Student> students = (List<Student>)dal.GetAllStudents();
+            students.Add(new GradStudent()
+            {
+                ID = 100,
+                Name = "Mike",
+                MarksPercent = 103
+            });
             ViewData["students"] = students;
 
             var filter = (from st in students
@@ -40,6 +46,10 @@ namespace Phase3Section4_11_Filter.Controllers
                       select st);
             List<Student> filter2 = filter.ToList<Student>();
             ViewData["filter2"] = filter2;
+
+            var gradStudents = students.OfType<GradStudent>().ToList();
+            ViewData["gradStudents"] = gradStudents;
+
             return View();
         }
 

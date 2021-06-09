@@ -36,15 +36,11 @@ namespace Phase3Section4_9_Projection.Controllers
 
             ViewData["filter"] = filterStudent;
 
-            int counter = 0;
-            foreach (Student st in students)
-            {
-                st.subjects = new List<String>();
-                for (int i = 0; i < 4; i++)
-                {
-                    st.subjects.Add("Subject " + Convert.ToString(i + 1));
-                }
-            }
+            students.ForEach(student =>
+                student.subjects = Enumerable.Range(0, 4)
+                    .Select((item, i) => $"Subject {item*4+i}").ToList());
+
+
             var many = students.SelectMany(st => st.subjects);
             List<String> manyList = many.ToList<String>();
             ViewData["many"] = manyList;

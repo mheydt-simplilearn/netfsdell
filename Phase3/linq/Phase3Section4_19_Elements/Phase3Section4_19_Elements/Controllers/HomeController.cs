@@ -31,7 +31,7 @@ namespace Phase3Section4_19_Elements.Controllers
             Student elementAt = students.ElementAtOrDefault(2);
             ViewData["elementAt"] = elementAt;
 
-            Student single = students.SingleOrDefault(st => st.MarksPercent == 95);
+            Student single = students.SingleOrDefault(st => st.MarksPercent == 800);
             ViewData["single"] = single;
 
             List<Student> emptyList = new List<Student>();

@@ -25,7 +25,7 @@ namespace Phase3Section4_17_Conversion.Models
 
                 while (rdr.Read())
                 {
-                    Student student = new Student();
+                    var student = new GradStudent();
 
                     student.ID = Convert.ToInt32(rdr["ID"]);
                     student.Name = rdr["Name"].ToString();
