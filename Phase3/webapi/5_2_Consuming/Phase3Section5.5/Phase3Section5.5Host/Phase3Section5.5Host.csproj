@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Phase3Section5.5\Phase3Section5.5.csproj">
-      <Project>{f437ca34-0dd1-4e91-91a0-1dd0bc2dbfac}</Project>
+      <Project>{F437CA34-0DD1-4E91-91A0-1DD0BC2DBFAC}</Project>
       <Name>Phase3Section5.5</Name>
     </ProjectReference>
   </ItemGroup>
