@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Your Cart";
-    ViewData["CartItemCount"] = Model.Items.Count();
+    ViewData["CartItemCount"] = Model.Items.Sum(i => i.Quantity);
 }
 
 <h1>Cart</h1>

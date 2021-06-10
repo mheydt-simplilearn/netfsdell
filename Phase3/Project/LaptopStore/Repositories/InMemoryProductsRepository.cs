@@ -9,49 +9,48 @@ namespace LaptopStore.Repositories
 {
     public class InMemoryProductsRepository : IProductsRepository
     {
-        private static List<Product> _products = new List<Product>()
+        private static Dictionary<int, Product> _products = new Dictionary<int, Product>()
         {
-            new Product()
+            {1,  new Product()
             {
                 ID = 1,
                 Name = "XPS15",
                 Price = 2249.99m,
                 Thumbnail = "xps15_thumb.png"
-            },
-            new Product()
+            } },
+            {2, new Product()
             {
                 ID = 2,
                 Brand = "Dell",
                 Name = "Inspiron 15 3000",
                 Price = 2349.99m,
                 Thumbnail = "Inspiron15_3000t_thumb.PNG"
-            }
+            } }
         };
 
         public void Add(Product product)
         {
-            _products.Add(product);
+            _products[product.ID] = product;
         }
 
         public Task<bool> ExistsByIdAsync(int id)
         {
-            return Task.FromResult(_products.FirstOrDefault(product => product.ID == id) != null);
+            return Task.FromResult(_products.ContainsKey(id));
         }
 
         public Task<Product> FindAsync(int productId)
         {
-            return Task.FromResult(_products.FirstOrDefault(p => p.ID == productId));
+            return Task.FromResult(_products[productId]);
         }
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            return Task.FromResult((IEnumerable<Product>)_products);
+            return Task.FromResult((IEnumerable<Product>)_products.Values);
         }
 
-        public Task RemoveByIdAsync(int id)
+        public Task RemoveByIdAsync(int productId)
         {
-            var product = _products.FirstOrDefault(product => product.ID == id);
-            if (product != null) _products.Remove(product);
+            _products.Remove(productId);
             return Task.CompletedTask;
         }
 
@@ -62,6 +61,8 @@ namespace LaptopStore.Repositories
 
         public void Update(Product product)
         {
+            if (!_products.ContainsKey(product.ID)) throw new Exception($"Product not found: {product.ID}");
+            _products[product.ID] = product;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using LaptopStore.Helpers;
 using LaptopStore.Models;
 using LaptopStore.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,14 @@ namespace LaptopStore.Controllers
 
         public CartController(IProductsRepository productsRepository)
         {
-            _productsRepository = productsRepository;
+            _productsRepository = productsRepository ?? throw new ArgumentNullException(nameof(productsRepository));
         }
 
         [HttpGet]
         public IActionResult Index()
         {
             var cart = SessionHelper.GetObjectFromJson<Cart>(HttpContext.Session, "cart");
+            HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             return View(cart);
         }
 
@@ -34,6 +36,7 @@ namespace LaptopStore.Controllers
                 var cart = new Cart();
                 cart.Add(new CartItem { Product = await _productsRepository.FindAsync(productId), Quantity = 1 });
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             }
             else
             {
@@ -48,6 +51,7 @@ namespace LaptopStore.Controllers
                     cart.Add(new CartItem { Product = await _productsRepository.FindAsync(productId), Quantity = 1 });
                 }
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             }
             return RedirectToAction("Index");
         }
@@ -61,6 +65,7 @@ namespace LaptopStore.Controllers
             {
                 cart.Remove(item);
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             }
             return RedirectToAction("Index");
         }

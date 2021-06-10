@@ -9,38 +9,48 @@ using LaptopStore.Data;
 using LaptopStore.Models;
 using LaptopStore.Repositories;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace LaptopStore.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProductsRepository _productsRepository;
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ProductsController> _logger;
 
         public ProductsController(
             IProductsRepository productsRepository,
             ILogger<ProductsController> logger)
         {
-            _productsRepository = productsRepository;
+            _productsRepository = productsRepository ?? throw new ArgumentNullException(nameof(productsRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             
-            _logger.LogInformation("In  the products controller constructor");
+            _logger.LogInformation("In the products controller constructor");
+        }
+
+        private void setCartItemCount()
+        {
+            var cartItemCount = HttpContext.Session.GetInt32("CartItemCount");
+            ViewData["CartItemCount"] = cartItemCount == null ? 0 : cartItemCount.Value;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
+            setCartItemCount();
             return View(await _productsRepository.GetAllAsync());
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? productId)
         {
-            if (id == null)
+            setCartItemCount();
+            if (productId == null)
             {
                 return NotFound();
             }
 
-            var product = await _productsRepository.FindAsync(id.Value);
+            var product = await _productsRepository.FindAsync(productId.Value);
             if (product == null)
             {
                 return NotFound();
@@ -52,6 +62,7 @@ namespace LaptopStore.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            setCartItemCount();
             return View();
         }
 
@@ -62,6 +73,7 @@ namespace LaptopStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Brand,Price,Thumbnail")] Product product)
         {
+            setCartItemCount();
             if (ModelState.IsValid)
             {
                 _productsRepository.Add(product);
@@ -72,14 +84,15 @@ namespace LaptopStore.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? productId)
         {
-            if (id == null)
+            setCartItemCount();
+            if (productId == null)
             {
                 return NotFound();
             }
 
-            var product = await _productsRepository.FindAsync(id.Value);
+            var product = await _productsRepository.FindAsync(productId.Value);
             if (product == null)
             {
                 return NotFound();
@@ -94,6 +107,7 @@ namespace LaptopStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Brand,Price,Thumbnail")] Product product)
         {
+            setCartItemCount();
             if (id != product.ID)
             {
                 return NotFound();
@@ -123,14 +137,15 @@ namespace LaptopStore.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? productId)
         {
-            if (id == null)
+            setCartItemCount();
+            if (productId == null)
             {
                 return NotFound();
             }
 
-            var product = await _productsRepository.FindAsync(id.Value);
+            var product = await _productsRepository.FindAsync(productId.Value);
             if (product == null)
             {
                 return NotFound();
@@ -144,6 +159,7 @@ namespace LaptopStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            setCartItemCount();
             await _productsRepository.RemoveByIdAsync(id);
             await _productsRepository.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

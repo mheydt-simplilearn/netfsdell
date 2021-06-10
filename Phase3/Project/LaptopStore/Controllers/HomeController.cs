@@ -23,7 +23,6 @@ namespace LaptopStore.Controllers
 
         public ActionResult Index()
         {
-
             return RedirectToRoute("/products/index");
         }
     }
