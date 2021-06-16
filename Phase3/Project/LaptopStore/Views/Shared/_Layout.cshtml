@@ -24,8 +24,12 @@
                     </ul>
                 </div>
                 <div class="navbar-nav ml-auto">
-                    <a href="">Cart</a>
-                    <span class="badge badge-light">(@ViewData["CartItemCount"])</span>
+                    @{
+                        var count = ViewData["CartItemCount"];
+                        @Html.ActionLink(
+                                     $"Cart ({count})",
+                                     "Index", "Cart", null, new { @class = "btn btn-success" });
+                    }
                 </div>
             </div>
         </nav>

@@ -24,7 +24,6 @@ namespace LaptopStore.Controllers
         public IActionResult Index()
         {
             var cart = SessionHelper.GetObjectFromJson<Cart>(HttpContext.Session, "cart");
-            HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             return View(cart);
         }
 
@@ -68,6 +67,13 @@ namespace LaptopStore.Controllers
                 HttpContext.Session.SetInt32("CartItemCount", cart.Items.Sum(i => i.Quantity));
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("CompletePurchase")]
+        public IActionResult CompletePurchase()
+        {
+            ViewData["CartItemCount"] = 0;
+            return View();
         }
     }
 }

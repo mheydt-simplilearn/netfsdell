@@ -26,9 +26,13 @@ namespace LaptopStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.Add(new ServiceDescriptor(typeof(IProductsRepository), typeof(InMemoryProductsRepository), ServiceLifetime.Scoped));
+            /*
+            services.Add(
+                new ServiceDescriptor(typeof(IProductsRepository), 
+                typeof(InMemoryProductsRepository), 
+                ServiceLifetime.Scoped));
+            */
             services.Add(new ServiceDescriptor(typeof(IProductsRepository), typeof(EntityFrameworkProductsRepository), ServiceLifetime.Scoped));
-
             services.AddDbContext<LaptopStoreContext>(options =>
                     options.UseSqlServer(@"Server=.\SQLExpress;Database=LaptopStore;User Id=sa;Password=P@ssword;"));
 

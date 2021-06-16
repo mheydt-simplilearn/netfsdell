@@ -13,10 +13,10 @@ namespace Phase3Section5._7
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class schoolEntities1 : DbContext
+    public partial class schoolEntities2 : DbContext
     {
-        public schoolEntities1()
-            : base("name=schoolEntities1")
+        public schoolEntities2()
+            : base("name=schoolEntities2")
         {
         }
     
@@ -26,7 +26,5 @@ namespace Phase3Section5._7
         }
     
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<Subject> Subjects { get; set; }
     }
 }

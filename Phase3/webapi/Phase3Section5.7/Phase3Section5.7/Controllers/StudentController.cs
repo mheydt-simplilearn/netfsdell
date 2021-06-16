@@ -14,7 +14,7 @@ namespace Phase3Section5._7.Controllers
         {
             IList<StudentViewModel> students = null;
 
-            using (var ctx = new schoolEntities1())
+            using (var ctx = new schoolEntities2())
             {
                 students = ctx.Students
                             .Select(s => new StudentViewModel()
@@ -40,7 +40,7 @@ namespace Phase3Section5._7.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            using (var ctx = new schoolEntities1())
+            using (var ctx = new schoolEntities2())
             {
                 ctx.Students.Add(new Student()
                 {
@@ -62,7 +62,7 @@ namespace Phase3Section5._7.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            using (var ctx = new schoolEntities1())
+            using (var ctx = new schoolEntities2())
             {
                 var existingStudent = ctx.Students.Where(s => s.ID == student.Id)
                                                         .FirstOrDefault<Student>();
@@ -85,13 +85,14 @@ namespace Phase3Section5._7.Controllers
             return Ok();
         }
 
+        
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             if (id <= 0)
                 return BadRequest("Not a valid student id");
 
-            using (var ctx = new schoolEntities1())
+            using (var ctx = new schoolEntities2())
             {
                 var student = ctx.Students
                     .Where(s => s.ID == id)
