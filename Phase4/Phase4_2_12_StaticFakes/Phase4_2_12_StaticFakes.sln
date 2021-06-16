@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31220.234
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_12_StaticFakes", "Phase4_2_12_StaticFakes\Phase4_2_12_StaticFakes.csproj", "{A6484199-0BC0-4E41-B633-6CB8557A5711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_12_StaticFakes.Tests", "Phase4_2_12_StaticFakes.Tests\Phase4_2_12_StaticFakes.Tests.csproj", "{DE2247B0-3201-4742-8366-DFFC25DEC3AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6484199-0BC0-4E41-B633-6CB8557A5711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6484199-0BC0-4E41-B633-6CB8557A5711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6484199-0BC0-4E41-B633-6CB8557A5711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6484199-0BC0-4E41-B633-6CB8557A5711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2247B0-3201-4742-8366-DFFC25DEC3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2247B0-3201-4742-8366-DFFC25DEC3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2247B0-3201-4742-8366-DFFC25DEC3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2247B0-3201-4742-8366-DFFC25DEC3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFEC5214-04DA-46D5-BD13-649158ADDC36}
+	EndGlobalSection
+EndGlobal

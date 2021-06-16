@@ -17,7 +17,7 @@ namespace Phase4_2_8_CodeCoverage.Tests
             Assert.That(marks2, Is.InRange(50, 75));
 
             Assert.That(name, Is.Null);
-        }_11_Mo
+        }
 
         [Test]
         public void Warnings()

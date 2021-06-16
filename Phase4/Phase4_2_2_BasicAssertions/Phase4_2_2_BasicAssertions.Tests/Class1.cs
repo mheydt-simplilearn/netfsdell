@@ -16,7 +16,6 @@ namespace Phase4_2_2_BasicAssertions.Tests
             Assert.That(marks1, Is.LessThan(marks2));
             Assert.That(marks2, Is.InRange(50, 75));
 
-
             Assert.That(name, Is.Null);
         }
     }

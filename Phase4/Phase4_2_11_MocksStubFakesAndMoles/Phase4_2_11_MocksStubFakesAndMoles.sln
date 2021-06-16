@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31220.234
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_11_MocksStubFakesAndMoles", "Phase4_2_11_MocksStubFakesAndMoles\Phase4_2_11_MocksStubFakesAndMoles.csproj", "{A8540E39-9B93-4160-85AA-7273277FF656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phase4_2_11_MocksStubFakesAndMoles.Tests", "Phase4_2_11_MocksStubFakesAndMoles.Tests\Phase4_2_11_MocksStubFakesAndMoles.Tests.csproj", "{77E49C79-2F8B-4DF3-9601-0E3D3BF4250E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8540E39-9B93-4160-85AA-7273277FF656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8540E39-9B93-4160-85AA-7273277FF656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8540E39-9B93-4160-85AA-7273277FF656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8540E39-9B93-4160-85AA-7273277FF656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E49C79-2F8B-4DF3-9601-0E3D3BF4250E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E49C79-2F8B-4DF3-9601-0E3D3BF4250E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E49C79-2F8B-4DF3-9601-0E3D3BF4250E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E49C79-2F8B-4DF3-9601-0E3D3BF4250E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {844435F6-9FC8-49A6-A5F9-8FE6557B535B}
+	EndGlobalSection
+EndGlobal
