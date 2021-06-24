@@ -12,12 +12,12 @@ namespace Phase4_2_3_Warnings.Tests
             int total = 100, marks1 = 60, marks2 = 75;
             string name = null;
 
-            Warn.If(marks1 > 100);
-            Warn.If(name == null);
+            //Warn.If(marks1 > 100);
+            Warn.If(name != null);
 
             Warn.Unless(marks1 + marks2 < 200);
 
-            Assert.Warn("This is a warning message");
+            //.Warn("This is a warning message");
         }
 
 

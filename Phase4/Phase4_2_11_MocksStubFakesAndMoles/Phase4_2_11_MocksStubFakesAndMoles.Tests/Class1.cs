@@ -15,6 +15,7 @@ namespace Phase4_2_11_MocksStubFakesAndMoles.Tests
             int x = 9, y = 19;
             Mock<ICalculator> mockCalc = new Mock<ICalculator>();
             ICalculator calc = mockCalc.Object;
+            var a = calc.add(1, 2);
             Assert.That(calc, Is.Not.Null);
         }
 
@@ -28,7 +29,8 @@ namespace Phase4_2_11_MocksStubFakesAndMoles.Tests
                 .Returns(x + y);
 
             ICalculator calc = mockCalc.Object;
-            Assert.That(calc.add(x, y), Is.EqualTo(x + y));
+            var result = calc.add(x, y);
+            Assert.That(result, Is.EqualTo(x + y));
         }
 
         [Test]
@@ -36,7 +38,7 @@ namespace Phase4_2_11_MocksStubFakesAndMoles.Tests
         {
             int x = 9, y = 19;
             FakeCalculator calc = new FakeCalculator();
-            Assert.That(calc.add(x, y), Is.GreaterThan(0));
+            Assert.That(calc.add(x, y), Is.EqualTo(28));
         }
 
     }

@@ -16,14 +16,11 @@ namespace Phase4_2_5_MultipleAssertions.Tests
 
             Assert.Multiple(() =>
             {
-                Assert.That(marks1, Is.Not.EqualTo(marks2));
-                Assert.That(marks1, Is.LessThan(marks2));
+                Assert.That(marks1, Is.Not.EqualTo(60));
+                Assert.That(marks1, Is.LessThan(60));
                 Assert.That(marks2, Is.InRange(50, 75));
             });
-
         }
-
-
     }
 
 }

@@ -22,13 +22,12 @@ namespace Phase4_2_6_Exceptions.Tests
 
         public int addStrings(string x, string y)
         {
-            int a = 0, b = 0;
-            Int32.TryParse(x, out a);
-            Int32.TryParse(y, out b);
+            if (!Int32.TryParse(x, out var a))
+                throw new InvalidOperationException("x param is not a valid integer");
 
-            if (a == 0 || b == 0)
-                throw new InvalidOperationException("String values are not valid integers");
-
+            if (!Int32.TryParse(y, out var b))
+                throw new InvalidOperationException("y param is not a valid integer");
+                
             return a + b;
         }
     }

@@ -9,6 +9,9 @@ namespace LaptopStore.Repositories
 {
     public class InMemoryProductsRepository : IProductsRepository
     {
+        public List<Product> NewProductsToAdd { get; private set; }  = new List<Product>();
+
+        public static Dictionary<int, Product> Products { get { return _products; } }
         private static Dictionary<int, Product> _products = new Dictionary<int, Product>()
         {
             {1,  new Product()
@@ -30,7 +33,7 @@ namespace LaptopStore.Repositories
 
         public void Add(Product product)
         {
-            _products[product.ID] = product;
+            NewProductsToAdd.Add(product);
         }
 
         public Task<bool> ExistsByIdAsync(int id)
@@ -56,6 +59,13 @@ namespace LaptopStore.Repositories
 
         public Task SaveChangesAsync()
         {
+            foreach (var newProduct in NewProductsToAdd)
+            {
+                var id = _products.Values.Max(p => p.ID) + 1;
+                _products[id] = newProduct;
+                newProduct.ID = id;
+            }
+            NewProductsToAdd.Clear();
             return Task.CompletedTask;
         }
 

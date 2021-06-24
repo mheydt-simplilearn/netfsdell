@@ -4,15 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Phase4_2_4_ArrangeActAssert.Tests
+namespace Phase4_2_4_ArrangeActAssert
 {
-    public interface ICalculator
-    {
-        int add(int x, int y);
-        int addStrings(string x, string y);
-    }
-
-
     public class Calculator : ICalculator
     {
         public int add(int x, int y)

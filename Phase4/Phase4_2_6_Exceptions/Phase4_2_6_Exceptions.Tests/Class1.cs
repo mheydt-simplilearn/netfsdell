@@ -8,14 +8,26 @@ namespace Phase4_2_6_Exceptions.Tests
     {
 
         [Test]
-        public void Exceptions()
+        public void ThrowsException()
         {
             var calc = new Calculator();
 
-            Assert.Throws<InvalidOperationException>(() => calc.addStrings("aaa", "Bbb"));
+            // act / assert
+            Assert.Throws<InvalidOperationException>(() => calc.addStrings("a", "2"));
+
+            // check good parameters and return value
+            // check bad parameters and return values
+            // checks exception exceptions
         }
 
+        [Test]
+        public void AddsProperly()
+        {
+            var calc = new Calculator();
 
+            // act / assert
+            Assert.That(calc.addStrings("1", "2"), Is.EqualTo(3));
+        }
     }
 
 }

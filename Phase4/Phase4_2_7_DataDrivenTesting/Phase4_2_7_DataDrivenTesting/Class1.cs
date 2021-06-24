@@ -12,7 +12,7 @@ namespace Phase4_2_7_DataDrivenTesting
 
         [Test]
         [TestCase(10, 20, ExpectedResult = 30)]
-        [TestCase(100, 200, ExpectedResult = 300)]
+        [TestCase(100, 300, ExpectedResult = 300)]
         [TestCase(1000, 2000, ExpectedResult = 3000)]
         public int DataDriven1(int x, int y)
         {

@@ -1,0 +1,54 @@
+version: '3.4'
+
+services:
+  webmvc:
+    image: eshop/webmvc
+    environment:
+      - CatalogUrl=http://catalog.api
+      - OrderingUrl=http://ordering.api
+      - BasketUrl=http://basket.api
+    ports:
+      - "5100:80"
+    depends_on:
+      - catalog.api
+      - ordering.api
+      - basket.api
+
+  catalog.api:
+    image: eshop/catalog.api
+    environment:
+      - ConnectionString=Server=sql.data;Initial Catalog=CatalogData;User Id=sa;Password=your@password
+    expose:
+      - "80"
+    ports:
+      - "5101:80"
+    depends_on:
+      - sql.data
+
+  ordering.api:
+    image: eshop/ordering.api
+    environment:
+      - ConnectionString=Server=sql.data;Database=Services.OrderingDb;User Id=sa;Password=your@password
+    ports:
+      - "5102:80"
+    depends_on:
+      - sql.data
+
+  basket.api:
+    image: eshop/basket.api
+    environment:
+      - ConnectionString=sql.data
+    ports:
+      - "5103:80"
+    depends_on:
+      - sql.data
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=your@password
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+
+  basket.data:
+    image: redis
