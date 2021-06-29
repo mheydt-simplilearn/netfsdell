@@ -1,0 +1,77 @@
+﻿@model Cart
+
+@{
+    ViewData["Title"] = "Your Cart";
+    ViewData["CartItemCount"] = Model == null ? 0 : Model.Items.Sum(i => i.Quantity);
+}
+
+<h1>Cart</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>Quantity</th>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.Medicine.Image" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medicine.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medicine.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Remove", "Cart", new { ProductId = item.Medicine.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+@{
+    if (Model != null && Model.Items != null && Model.Items.Count > 0) {
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmPurchaseModal">
+            Complete Purchase
+        </button>
+        }
+    }
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="confirmPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="confirmPurchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmPurchaseModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please confirm that you want to complete the purchase
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                @Html.ActionLink("Complete Purchase", "CompletePurchase", "Cart", null, new { @class = "btn btn-success" });
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿USE [EHealth]
+GO
+
+/****** Object:  Table [dbo].[Medicines]    Script Date: 6/28/2021 9:32:13 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Medicines](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[Price] [decimal](18, 2) NOT NULL,
+	[Image] [nvarchar](50) NOT NULL,
+	[Seller] [nvarchar](max) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+USE [EHealth]
+GO
+
+/****** Object:  Table [dbo].[Categories]    Script Date: 6/28/2021 9:32:33 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Categories](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+
