@@ -7,6 +7,13 @@
 
 <h1>Medicines</h1>
 
+<form asp-controller="Medicines" asp-action="Search" method="get">
+    <p>
+        Name: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +32,8 @@
         <tr>
             <td>
                 <img src="~/images/@item.Image" />
-            </td>            <td>
+            </td>            
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
 
@@ -34,7 +42,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Add To Cart",  "AddToCart",   "Cart",     new { ProductId = item.Id}, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Add To Cart",  "AddToCart",   "Cart",     new { MedicineId = item.Id}, new { @class = "btn btn-primary" })
             </td>
         </tr>
 }

@@ -29,12 +29,13 @@
                                     <div class="navbar-nav ml-auto">
 
                     @{
-                            if (User.Identity.IsAuthenticated)
-                            {
-                                var count = ViewData["CartItemCount"];
-                                @Html.ActionLink(
-                                     $"Cart ({count})",
-                                     "Index", "Cart", null, new { @class = "btn btn-success" })
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            var count = ViewData["CartItemCount"];
+                            if (count == null) count = "0";
+                            @Html.ActionLink(
+                                 $"Cart ({count})",
+                                 "Index", "Cart", null, new { @class = "btn btn-success" })
                             }
                         }
                 </div>

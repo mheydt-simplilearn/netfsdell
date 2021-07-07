@@ -1,63 +1,63 @@
-﻿@model IEnumerable<EHealth.Shared.Models.Medicine>
+﻿@model EHealth.Admin.Web.ViewModels.MedicinesListViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Medicines Index";
 }
 
-<h1>Index</h1>
+<h5>Medicines</h5>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].TheMedicine.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].RelatedCategory.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].TheMedicine.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].TheMedicine.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].TheMedicine.Image)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Seller)
+                @Html.DisplayNameFor(model => model.MedicineViewModels[0].TheMedicine.Seller)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.MedicineViewModels) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.TheMedicine.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.RelatedCategory.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.TheMedicine.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.TheMedicine.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                @Html.DisplayFor(modelItem => item.TheMedicine.Image)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Seller)
+                @Html.DisplayFor(modelItem => item.TheMedicine.Seller)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.TheMedicine.Id" class="btn btn-primary">Edit</a> 
+
+                <a asp-action="Delete" asp-route-id="@item.TheMedicine.Id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }

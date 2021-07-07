@@ -9,10 +9,11 @@ using EHealth.Shared;
 using EHealth.Shared.Models;
 using Microsoft.AspNetCore.Authorization;
 using EHealth.Shared.Repositories;
+using EHealth.Admin.Web.ViewModels;
 
 namespace EHealth.Admin.Web.Controllers
 {
-    [Authorize(Roles = "User")]
+    [Authorize]
     public class MedicinesController : Controller
     {
         private IRepository<Medicine> _medicineRepository;
@@ -27,9 +28,26 @@ namespace EHealth.Admin.Web.Controllers
         }
 
         // GET: Medicines
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View();
+            var medicinesIndexViewModel = new MedicinesListViewModel(
+                _medicineRepository.GetAll().ToList(),
+                _categoryRepository.GetAll().ToList());
+
+            return View(medicinesIndexViewModel);
+        }
+
+        public IActionResult Create()
+        {
+            return View(new NewMedicineViewModel(_categoryRepository.GetAll().ToList()));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(NewMedicineViewModel newMedicineViewModel)
+        {
+            _medicineRepository.Insert(newMedicineViewModel.ToMedicine());
+            return RedirectToAction("Index");
         }
     }
 }

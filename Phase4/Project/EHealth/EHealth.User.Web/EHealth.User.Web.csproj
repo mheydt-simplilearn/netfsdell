@@ -17,4 +17,8 @@
     <ProjectReference Include="..\EHealth.Shared\EHealth.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

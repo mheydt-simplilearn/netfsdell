@@ -1,4 +1,5 @@
 ﻿using EHealth.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace EHealth.Admin.Web.Controllers
 {
+    [Authorize]
+
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;

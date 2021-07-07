@@ -3,6 +3,7 @@ using EHealth.Shared.Models;
 using EHealth.Shared.Repositories;
 using EHealth.User.Web.Helpers;
 using EHealth.User.Web.Models;
+using EHealth.User.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -79,8 +80,16 @@ namespace EHealth.User.Web.Controllers
         [HttpGet("CompletePurchase")]
         public IActionResult CompletePurchase()
         {
+            var cart = SessionHelper.GetObjectFromJson<Cart>(HttpContext.Session, "cart");
+
+
             ViewData["CartItemCount"] = 0;
-            return View();
+
+            HttpContext.Session.Remove("cart");
+
+            return View(new OrderSummaryViewModel() { OrderTotal = cart.Items.Sum(item => item.Quantity * (double)item.Medicine.Price) }); 
+
+
         }
     }
 }

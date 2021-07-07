@@ -27,5 +27,12 @@ namespace EHealth.User.Web.Controllers
         {
             return View(_medicineRepository.GetAll());
         }
+
+        public IActionResult Search(string searchString)
+        {
+            if (searchString == null) searchString = "";
+            var filtered = _medicineRepository.GetAll().Where(medicine => medicine.Name.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            return View("Index", filtered);
+        }
     }
 }

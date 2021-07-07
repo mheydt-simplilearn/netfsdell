@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EHealth.Admin.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
