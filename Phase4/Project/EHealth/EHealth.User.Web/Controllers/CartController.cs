@@ -1,5 +1,4 @@
-﻿using EHealth.Shared;
-using EHealth.Shared.Models;
+﻿using EHealth.Shared.Models;
 using EHealth.Shared.Repositories;
 using EHealth.User.Web.Helpers;
 using EHealth.User.Web.Models;
@@ -87,7 +86,7 @@ namespace EHealth.User.Web.Controllers
 
             HttpContext.Session.Remove("cart");
 
-            return View(new OrderSummaryViewModel() { OrderTotal = cart.Items.Sum(item => item.Quantity * (double)item.Medicine.Price) }); 
+            return View(new OrderSummaryViewModel() { OrderTotal = cart.Items.Sum(item => item.Quantity * (double)item.Medicine.Price) });
 
 
         }
